@@ -1,0 +1,9 @@
+transformers>=4.50.0
+peft
+accelerate
+bitsandbytes
+datasets
+torch
+trl
+huggingface_hub
+numpy
