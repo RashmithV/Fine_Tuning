@@ -2,8 +2,8 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from peft import PeftModel
 
-BASE_MODEL = "google/gemma-3-1b-it"   # or local path
-ADAPTER_PATH = "./qlora-out/checkpoint-216"  # NOTE: ./ is important
+BASE_MODEL = "google/gemma-3-1b-it"  
+ADAPTER_PATH = "./qlora-out/checkpoint-216"  
 
 bnb_config = BitsAndBytesConfig(
     load_in_4bit=True,
@@ -22,7 +22,7 @@ base_model = AutoModelForCausalLM.from_pretrained(
     dtype=torch.float16
 )
 
-# 🔑 THIS must be a local path
+
 model = PeftModel.from_pretrained(
     base_model,
     ADAPTER_PATH,
